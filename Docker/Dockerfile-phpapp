@@ -1,0 +1,12 @@
+FROM arm32v6/alpine:3.7
+
+WORKDIR /app
+VOLUME /app
+EXPOSE 85
+
+RUN apk --update --no-cache add php7-mysqli php7-sockets mysql-client php7 php7-common php7-zlib php7-curl php7-gd 
+
+COPY ./php_app /app/daemon
+COPY ./Docker/phpapp/start.sh /app
+
+CMD ["/app/start.sh"]

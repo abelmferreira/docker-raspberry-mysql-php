@@ -1,0 +1,12 @@
+FROM arm32v6/alpine:3.7
+
+WORKDIR /app
+VOLUME /app
+EXPOSE 3306
+
+RUN apk --update --no-cache add mysql mysql-client
+
+COPY ./Docker/mysql/startup.sh /startup.sh
+COPY ./Docker/mysql/my.cnf /etc/mysql/my.cnf
+
+CMD ["/startup.sh"]
