@@ -36,6 +36,13 @@ Inicializa todos os conteiners, Mysql e PHP
 
 
 ```sh
+$ ./master.sh logs conteinerName
+```
+
+Exibe os logs do conteiner informado
+
+
+```sh
 $ ./master.sh clean
 ```
 

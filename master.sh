@@ -49,6 +49,10 @@ case "$1" in
 		docker build -t ${IMAGE_NAME_PHP}:latest -f ${DOCKERFILE_PHP} .
 		;;
 
+	logs)
+		docker logs -f --tail 50 $2
+		;;
+
 	clean)
 		docker rm $(docker ps -a -q)
 		docker rmi $(docker images | grep "^<none>" | tr -s " " | grep " <none> " | cut -d' ' -f3 | tr '\n' ' ')
